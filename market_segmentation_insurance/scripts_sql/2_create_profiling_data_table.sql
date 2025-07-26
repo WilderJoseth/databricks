@@ -1,8 +1,14 @@
 USE CATALOG training_catalog;
 USE SCHEMA market_segmentation_insurance_db;
 
-DROP TABLE IF EXISTS raw_data;
-CREATE TABLE raw_data (
+DROP TABLE IF EXISTS missing_values_profiling_data;
+CREATE TABLE missing_values_profiling_data (
+  column_name STRING, 
+  missing_count INTEGER
+);
+
+DROP TABLE IF EXISTS duplicated_values_profiling_data;
+CREATE TABLE duplicated_values_profiling_data (
   cust_id STRING, 
   balance STRING, 
   balance_frequency STRING, 
@@ -20,5 +26,12 @@ CREATE TABLE raw_data (
   payments STRING, 
   minimum_payments STRING, 
   prc_full_payment STRING, 
-  tenure STRING
+  tenure STRING,
+  count_duplicated INTEGER
+);
+
+DROP TABLE IF EXISTS consistency_values_profiling_data;
+CREATE TABLE consistency_values_profiling_data (
+  column_name STRING, 
+  count_invalid INTEGER
 );

@@ -1,5 +1,5 @@
 spark.sql('''
-          COPY INTO raw_data
+          COPY INTO training_catalog.market_segmentation_insurance_db.raw_data
           FROM "/Volumes/training_catalog/market_segmentation_insurance_db/training_files/"
           FILEFORMAT = CSV
           FORMAT_OPTIONS (
